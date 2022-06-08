@@ -21,11 +21,11 @@ int main(int argc, char **argv)
 	while (i < ntasks)
 	{
 	if (i == 0)
-		printf("Rank[0] my sum is %f\n", s);
+		printf("Rank[%d] my sum is %f\n", rank, s);
 	else
         {
 	MPI_Recv(&sum, 1, MPI_FLOAT, MPI_ANY_SOURCE, 0,MPI_COMM_WORLD, &st);
-	printf("Rank[0] got sum from [%d] = %f\n", st.MPI_SOURCE, sum);
+	printf("Rank[%d] got sum from [%d] = %f\n", rank, st.MPI_SOURCE, sum);
         }
 	sum2 += sum;
 	i++;
